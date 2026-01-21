@@ -1,0 +1,14 @@
+# dotfiles
+
+Local dotfiles repo for this dwl + dwlb setup.
+
+## dwlb
+- `dwlb/run.sh`: launches dwlb with IPC + status stdin
+- `dwlb/status.sh`: emits status line (cpu/mem/temp/batt/vol/net/date)
+
+### Quick start
+```
+./dwlb/run.sh
+```
+
+Set `DWLB_OUTPUT` if your output name is not `eDP-1`.
