@@ -1,0 +1,33 @@
+# Tofi config - Gruvbox Material Dark Soft
+
+font = "Iosevka 12"
+font-size = 16
+prompt-text = "run: "
+width = 40%
+height = 40%
+anchor = center
+outline-width = 2
+border-width = 6
+corner-radius = 10
+padding-top = 8
+padding-bottom = 8
+padding-left = 12
+padding-right = 12
+result-spacing = 6
+
+# Gruvbox Material Dark Soft palette
+background-color = #32302f
+outline-color = #3c3836
+border-color = #504945
+text-color = #d4be98
+prompt-color = #d8a657
+input-color = #d4be98
+placeholder-color = #7c6f64
+selection-color = #32302f
+selection-background = #a9b665
+selection-match-color = #32302f
+selection-background-padding = 2,8
+
+# Subtle defaults
+default-result-color = #d4be98
+alternate-result-color = #d4be98
