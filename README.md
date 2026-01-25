@@ -1,18 +1,25 @@
 # dotfiles
 
-Local dotfiles repo for this dwl + dwlb setup.
+Local dotfiles repo for this dwl + somebar + someblocks setup.
 
-## dwlb
-- `dwlb/run.sh`: launches dwlb with IPC + status stdin
-- `dwlb/status.sh`: emits status line (cpu/mem/temp/batt/vol/net/date)
+## somebar
+- `somebar/run.sh`: feeds status updates to somebar via its control FIFO
+- `somebar/status.sh`: emits status line (cpu/mem/temp/batt/vol/net/date)
+
+## someblocks
+- `someblocks/run.sh`: starts someblocks and targets somebar's FIFO
 - `tofi/config`: app launcher config (Gruvbox Material Dark Soft)
 
 ### Quick start
 ```
-./dwlb/run.sh
+./someblocks/run.sh
 ```
 
-Set `DWLB_OUTPUT` if your output name is not `eDP-1`.
+Make sure you start dwl with `-s somebar` so the FIFO exists.
+
+## Install notes
+These scripts assume `somebar` and `someblocks` are installed on `PATH`
+(e.g. via `sudo ninja -C build install` for somebar and `sudo make install` for someblocks).
 
 ## Tofi
 ```
