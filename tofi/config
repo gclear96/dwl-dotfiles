@@ -1,10 +1,9 @@
 # Tofi config - Gruvbox Material Dark Soft
 
-font = "Iosevka 12"
-font-size = 16
+font = "Iosevka 16"
 prompt-text = "run: "
-width = 40%
-height = 40%
+width = 0.40
+height = 0.40
 anchor = center
 outline-width = 2
 border-width = 6

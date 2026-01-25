@@ -9,6 +9,8 @@ Local dotfiles repo for this dwl + somebar + someblocks setup.
 ## someblocks
 - `someblocks/run.sh`: starts someblocks and targets somebar's FIFO
 - `tofi/config`: app launcher config (Gruvbox Material Dark Soft)
+- `tofi/run.sh`: app launcher entrypoint (tofi-run)
+- `tofi/power.sh`: basic power menu (tofi)
 
 ### Quick start
 ```
