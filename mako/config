@@ -1,0 +1,19 @@
+font=monospace 11
+background-color=#282828dd
+text-color=#ebdbb2ff
+border-color=#d8a657ff
+progress-color=over #504945ff
+border-size=2
+border-radius=8
+padding=10
+default-timeout=5000
+ignore-timeout=1
+anchor=top-right
+max-visible=5
+layer=overlay
+
+[urgency=high]
+background-color=#3c3836ee
+text-color=#fb4934ff
+border-color=#ea6962ff
+default-timeout=0
