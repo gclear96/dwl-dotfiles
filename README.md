@@ -20,6 +20,20 @@ This is intended for the SceneFX-enabled dwl fork in this workspace.
 - `swaylock/config`: lock screen theme
 - `mako/config`: notification daemon theme
 
+## desktop integration helpers
+- `dwl/session-env.sh`: exports/imports session env for portals and starts portal user services
+- `dwl/polkit-agent.sh`: starts first available polkit auth agent
+- `dwl/cliphist-watch.sh`: starts clipboard history watchers
+- `dwl/clipmenu.sh`: clipboard picker + copy
+- `dwl/screenshot.sh`: full/area screenshots (grim/slurp + wl-copy)
+- `dwl/record.sh`: wf-recorder toggle
+- `dwl/volume.sh`: sink/source controls via wpctl
+- `dwl/brightness.sh`: brightnessctl wrapper with notifications
+- `dwl/media.sh`: playerctl wrapper
+- `dwl/battery-notify.sh`: low/critical battery notifications
+- `dwl/network.sh`: open network UI (`nm-connection-editor`/`nmtui`)
+- `dwl/bluetooth.sh`: open bluetooth UI (`blueman-manager`/`bluetoothctl`)
+
 ### Quick start
 ```
 ./someblocks/run.sh
@@ -37,15 +51,25 @@ For idle/lock/notifications, install these packages too:
 - `mako`
 - optional: `wlopm` (display power off/on on idle)
 
+For full desktop integration, also install:
+- `xdg-desktop-portal`
+- `xdg-desktop-portal-wlr`
+- `xdg-desktop-portal-gtk`
+- `lxqt-policykit` or `polkit-gnome`
+- `wl-clipboard`, `cliphist`
+- `grim`, `slurp`, `wf-recorder`
+- `pipewire`, `wireplumber`, `playerctl`
+- `brightnessctl`, `upower`
+- optional network/bluetooth tools: `networkmanager` (`nmcli`/`nmtui`), `blueman`
+
 Copy configs/scripts to your user config dir:
 
 ```sh
 mkdir -p ~/.config/dwl ~/.config/mako ~/.config/swaylock
-cp dwl/idle.sh ~/.config/dwl/idle.sh
-cp dwl/lock.sh ~/.config/dwl/lock.sh
+cp dwl/*.sh ~/.config/dwl/
 cp mako/config ~/.config/mako/config
 cp swaylock/config ~/.config/swaylock/config
-chmod +x ~/.config/dwl/idle.sh ~/.config/dwl/lock.sh
+chmod +x ~/.config/dwl/*.sh
 ```
 
 ## Tofi

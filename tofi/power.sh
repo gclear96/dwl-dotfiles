@@ -6,7 +6,11 @@ choice=$(printf "Lock\nSuspend\nReboot\nShutdown\nLogout\n" | tofi --prompt-text
 
 case "$choice" in
 	Lock)
-		command -v loginctl >/dev/null 2>&1 && loginctl lock-session
+		if [ -x "$HOME/.config/dwl/lock.sh" ]; then
+			"$HOME/.config/dwl/lock.sh"
+		elif command -v loginctl >/dev/null 2>&1; then
+			loginctl lock-session
+		fi
 		;;
 	Suspend)
 		systemctl suspend
