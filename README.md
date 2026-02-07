@@ -23,6 +23,9 @@ This is intended for the SceneFX-enabled dwl fork in this workspace.
 ## desktop integration helpers
 - `dwl/session-env.sh`: exports/imports session env for portals and starts portal user services
 - `dwl/polkit-agent.sh`: starts first available polkit auth agent
+- `dwl/wallpaper.sh`: starts wallpaper via `wbg` (`$WALLPAPER` or `$WALLPAPER_DIR`)
+- `dwl/output-setup.sh`: optional per-output scaling via `wlr-randr`
+- `dwl/outputs.conf.example`: example output-scale map
 - `dwl/cliphist-watch.sh`: starts clipboard history watchers
 - `dwl/clipmenu.sh`: clipboard picker + copy
 - `dwl/screenshot.sh`: full/area screenshots (grim/slurp + wl-copy)
@@ -61,15 +64,29 @@ For full desktop integration, also install:
 - `pipewire`, `wireplumber`, `playerctl`
 - `brightnessctl`, `upower`
 - optional network/bluetooth tools: `networkmanager` (`nmcli`/`nmtui`), `blueman`
+- optional output scaling helper: `wlr-randr`
 
 Copy configs/scripts to your user config dir:
 
 ```sh
 mkdir -p ~/.config/dwl ~/.config/mako ~/.config/swaylock
 cp dwl/*.sh ~/.config/dwl/
+cp dwl/outputs.conf.example ~/.config/dwl/outputs.conf
 cp mako/config ~/.config/mako/config
 cp swaylock/config ~/.config/swaylock/config
 chmod +x ~/.config/dwl/*.sh
+```
+
+Set your wallpaper with either:
+- `WALLPAPER=/absolute/path/to/file` (export before starting dwl), or
+- `WALLPAPER_DIR=~/Pictures/wallpapers` (first file in dir is used), or
+- edit `~/.config/dwl/wallpaper.sh` default path.
+
+Set scaling in `~/.config/dwl/outputs.conf`, for example:
+
+```txt
+eDP-1 2
+# eDP-1 1.5
 ```
 
 ## Tofi
