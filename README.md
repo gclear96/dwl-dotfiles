@@ -2,6 +2,8 @@
 
 Local dotfiles repo for this dwl + somebar + someblocks setup.
 
+This is intended for the SceneFX-enabled dwl fork in this workspace.
+
 ## somebar
 - `somebar/run.sh`: feeds status updates to somebar via its control FIFO
 - `somebar/status.sh`: emits status line (cpu/mem/temp/batt/vol/net/date)
@@ -17,7 +19,7 @@ Local dotfiles repo for this dwl + somebar + someblocks setup.
 ./someblocks/run.sh
 ```
 
-Make sure you start dwl with `-s somebar` so the FIFO exists.
+Make sure you start dwl with `-s "exec somebar </dev/null"` so the FIFO exists.
 
 ## Install notes
 These scripts assume `somebar` and `someblocks` are installed on `PATH`
