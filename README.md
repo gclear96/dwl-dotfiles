@@ -24,6 +24,7 @@ This is intended for the SceneFX-enabled dwl fork in this workspace.
 - `dwl/session-env.sh`: exports/imports session env for portals and starts portal user services
 - `dwl/polkit-agent.sh`: starts first available polkit auth agent
 - `dwl/wallpaper.sh`: starts wallpaper via `wbg` (`$WALLPAPER` or `$WALLPAPER_DIR`)
+- `dwl/matugen-theme.sh`: generates dynamic colors from wallpaper (matugen) for tofi/mako/swaylock
 - `dwl/output-setup.sh`: optional per-output scaling via `wlr-randr`
 - `dwl/outputs.conf.example`: example output-scale map
 - `dwl/cliphist-watch.sh`: starts clipboard history watchers
@@ -65,6 +66,7 @@ For full desktop integration, also install:
 - `brightnessctl`, `upower`
 - optional network/bluetooth tools: `networkmanager` (`nmcli`/`nmtui`), `blueman`
 - optional output scaling helper: `wlr-randr`
+- optional dynamic color generation: `matugen`
 
 Copy configs/scripts to your user config dir:
 
@@ -81,6 +83,17 @@ Set your wallpaper with either:
 - `WALLPAPER=/absolute/path/to/file` (export before starting dwl), or
 - `WALLPAPER_DIR=~/Pictures/wallpapers` (first file in dir is used), or
 - edit `~/.config/dwl/wallpaper.sh` default path.
+
+### Dynamic colors with matugen
+
+When `~/.config/dwl/matugen-theme.sh` is present and executable, `wallpaper.sh` calls it automatically with the selected wallpaper.
+
+This generates and applies dark-mode colors to:
+- `~/.config/tofi/config`
+- `~/.config/mako/config`
+- `~/.config/swaylock/config`
+
+It also exports a reusable palette to `~/.cache/matugen/palette.sh`.
 
 Set scaling in `~/.config/dwl/outputs.conf`, for example:
 

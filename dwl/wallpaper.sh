@@ -17,4 +17,8 @@ fi
 
 [ -f "$WALLPAPER" ] || exit 0
 
+if [ -x "$HOME/.config/dwl/matugen-theme.sh" ]; then
+	"$HOME/.config/dwl/matugen-theme.sh" "$WALLPAPER" >/dev/null 2>&1 &
+fi
+
 exec wbg "$WALLPAPER"
