@@ -1,3 +1,3 @@
 #!/bin/sh
 
-exec tofi-run --config "$HOME/.config/tofi/config"
+exec tofi-drun --config "$HOME/.config/tofi/config"
