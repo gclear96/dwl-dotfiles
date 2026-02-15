@@ -16,6 +16,9 @@ This is intended for the SceneFX-enabled dwl fork in this workspace.
 - `tofi/run.sh`: app launcher entrypoint (`tofi-drun`)
 - `tofi/power.sh`: basic power menu (tofi)
 
+## alacritty
+- `alacritty/alacritty.toml`: terminal defaults with dynamic color import
+
 ## idle + lock + notifications
 - `dwl/idle.sh`: starts `swayidle` and calls lock before sleep
 - `dwl/lock.sh`: simple `swaylock -f` wrapper
@@ -73,11 +76,12 @@ For full desktop integration, also install:
 Copy configs/scripts to your user config dir:
 
 ```sh
-mkdir -p ~/.config/dwl ~/.config/mako ~/.config/swaylock
+mkdir -p ~/.config/dwl ~/.config/mako ~/.config/swaylock ~/.config/alacritty
 cp dwl/*.sh ~/.config/dwl/
 cp dwl/outputs.conf.example ~/.config/dwl/outputs.conf
 cp mako/config ~/.config/mako/config
 cp swaylock/config ~/.config/swaylock/config
+cp alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 chmod +x ~/.config/dwl/*.sh
 ```
 
@@ -94,12 +98,17 @@ This generates and applies dark-mode colors to:
 - `~/.config/tofi/config`
 - `~/.config/mako/config`
 - `~/.config/swaylock/config`
+- `~/.config/alacritty/colors.toml`
 
 For somebar, it also writes:
 - `~/.cache/matugen/somebar-colors`
 
+For dwl, it also writes:
+- `~/.cache/matugen/dwl-colors`
+
 and triggers a live reload via:
 - `somebar -c reload-colors`
+- `pkill -USR1 -x dwl`
 
 It also exports a reusable palette to `~/.cache/matugen/palette.sh`.
 
