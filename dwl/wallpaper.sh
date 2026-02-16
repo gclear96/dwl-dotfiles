@@ -1,24 +1,19 @@
 #!/bin/sh
 
-if ! command -v wbg >/dev/null 2>&1; then
-	exit 0
-fi
-
 WALLPAPER="${WALLPAPER:-$HOME/Pictures/wallpaper.jpg}"
 WALLPAPER_DIR="${WALLPAPER_DIR:-$HOME/Pictures/wallpapers}"
+STATE_LINK="${XDG_CACHE_HOME:-$HOME/.cache}/dwl/current-wallpaper"
+SET_SCRIPT="$HOME/.config/dwl/set-wallpaper.sh"
 
-if [ -d "$WALLPAPER_DIR" ]; then
-	for first in "$WALLPAPER_DIR"/*; do
-		[ -f "$first" ] || continue
-		WALLPAPER="$first"
-		break
-	done
+if [ -L "$STATE_LINK" ] && [ -f "$STATE_LINK" ]; then
+  WALLPAPER="$STATE_LINK"
+elif [ -d "$WALLPAPER_DIR" ]; then
+  for first in "$WALLPAPER_DIR"/*; do
+    [ -f "$first" ] || continue
+    WALLPAPER="$first"
+    break
+  done
 fi
 
 [ -f "$WALLPAPER" ] || exit 0
-
-if [ -x "$HOME/.config/dwl/matugen-theme.sh" ]; then
-	"$HOME/.config/dwl/matugen-theme.sh" "$WALLPAPER" >/dev/null 2>&1 &
-fi
-
-exec wbg "$WALLPAPER"
+exec "$SET_SCRIPT" "$WALLPAPER"

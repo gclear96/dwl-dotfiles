@@ -29,6 +29,8 @@ This is intended for the SceneFX-enabled dwl fork in this workspace.
 - `dwl/session-env.sh`: exports/imports session env for portals and starts portal user services
 - `dwl/polkit-agent.sh`: starts first available polkit auth agent
 - `dwl/wallpaper.sh`: starts wallpaper via `wbg` (`$WALLPAPER` or `$WALLPAPER_DIR`)
+- `dwl/set-wallpaper.sh`: applies wallpaper + matugen theme and stores last selection
+- `dwl/wallpaper-picker.sh`: preview wallpaper picker from `~/Pictures/wallpapers` (nsxiv, with tofi fallback)
 - `dwl/matugen-theme.sh`: generates dynamic colors from wallpaper (matugen) for tofi/mako/swaylock
 - `dwl/output-setup.sh`: optional per-output scaling via `wlr-randr`
 - `dwl/outputs.conf.example`: example output-scale map
@@ -93,6 +95,16 @@ Set your wallpaper with either:
 ### Dynamic colors with matugen
 
 When `~/.config/dwl/matugen-theme.sh` is present and executable, `wallpaper.sh` calls it automatically with the selected wallpaper.
+
+To change wallpapers on the fly, use:
+
+```sh
+~/.config/dwl/wallpaper-picker.sh
+```
+
+This opens an image preview picker with `nsxiv` thumbnails (fallback: tofi/wofi list), applies the chosen wallpaper, and regenerates dynamic colors.
+
+In `nsxiv` mode, press `Q` to choose the currently selected image, or mark one/more images with `m` and press `q`.
 
 This generates and applies dark-mode colors to:
 - `~/.config/tofi/config`
